@@ -1,5 +1,6 @@
 package web.config;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -20,7 +21,8 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
 
-    /* Данный метод указывает url, на котором будет базироваться приложение */
+    //Данный метод указывает url, на котором будет базироваться приложение
+    @NotNull
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
