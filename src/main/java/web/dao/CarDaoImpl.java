@@ -2,6 +2,7 @@ package web.dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 import web.model.Car;
 
@@ -10,9 +11,16 @@ import java.util.List;
 
 @Repository
 public class CarDaoImpl implements CarDao {
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-    @Autowired
-     private SessionFactory sessionFactory;
+   // @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    private final SessionFactory sessionFactory;
+
+    public CarDaoImpl() {
+        sessionFactory = null;
+    }
+
+//    public CarDaoImpl(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
 
     @Override
     public List<Car> listCars(int count) {
